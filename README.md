@@ -6,7 +6,7 @@ The scoring matrix used for the alignments rewards 3 for any matches, 2 for C-T 
 
 To run the programs, use the .sh shell scripts with the desired arguments, including in order sequence 1, sequence 2, the scoring matrix, penality socre, and penalty for affine gaps if applicaple. For example, for local alignment, run the following commend in terminal: `./local.sh ypestis_modern.fasta test_medieval.fasta scoringMatrix.txt -1`. If report permission denied, run `chmod +x local.sh` first, then run the above line. 
 
-The program will print out the alignment score. The lines for printing out the aligned sequences are commented out since they can be really long. If want the aligned sequences to be printed out, the two lines are in the traceback() function for all programs. 
+The program will print out the alignment score. The lines for printing out the aligned sequences are commented out since they can be really long. If want the aligned sequences to be printed out, the two lines are at the end of the traceback() function for all programs. 
 
 The results are as follows:  
 local alignment: yenterocolitica vs. medieval: 15809; ypestis vs. medieval: 20779  
