@@ -2,14 +2,17 @@ from __future__ import print_function
 import sys
 import os
 
-global s1
-global s2
-global inputMatrix
-global H
-global V
-global D
+global s1 #the first sequence being aligned
+global s2 #the second sequence being aligned
+global p #penalty of opening a gap
+global a #penalty of continuing a gap
+global inputMatrix #the scoring matrix
+global H #H[i][j] records the best scores given that s2[j] is aligned to a gap
+global V #V[i][j] records the best scores given that s1[i] is aligned to a gap
+global D #D[i][j] records the best scores given that s1[i] is aligned to s2[j]
 
-def create_score_matrix(s1len, s2len):
+# create all three matrices, return the alighment score
+def create_score_tables(s1len, s2len):
     global H, V, D, p, a
     inf = float("-inf")
     H = [[inf for i in range(s2len+1)] for j in range(s1len+1)]
@@ -31,12 +34,14 @@ def create_score_matrix(s1len, s2len):
     print("Global alignment with affine gap score is:" + str(alignmentScore))
     return alignmentScore
 
-
+#traceback with three matrices. If the current value is in D, it means the previous move was
+#from diagonal, if in V, it means the previous move was a gap in s2, if in H, the previous move
+# was in s1.
 def traceback():
     global H, V, D, s1, s2, p, a
     alignedS1 = ""
     alignedS2 = ""
-    score = create_score_matrix(len(s1), len(s2))
+    score = create_score_tables(len(s1), len(s2))
     (row, col) = (len(s1), len(s2))
     inH = False
     inV = False
@@ -44,6 +49,7 @@ def traceback():
     if D[row][col] == score: inD = True
     elif V[row][col] == score: inV = True
     else: inH = True
+
     while (row, col) != (0,0):
         if inD == True:
             alignedS1 = s1[row-1:row] + alignedS1
@@ -81,24 +87,24 @@ def traceback():
                 score = V[row-1][col]
             (row, col) = (row-1, col)
 
-    print(alignedS1)
-    print(alignedS2)
-
+    # print(alignedS1)
+    # print(alignedS2)
     return
 
-
+#from scoring matrix get the score of two mismatch characters
 def get_score2(letter1, letter2):
     row = inputMatrix[0].index(letter1)
     col = inputMatrix[0].index(letter2)
     return int(inputMatrix[row][col])
 
-
+#for debugging, print out the DP table in a nice way
 def print_grid(grid):
     for row in grid:
         for symbol in row:
             print(str(symbol).rjust(4), end='    ')
         print("")
 
+#read the txt file with the scoring matrix, conver it into a matrix
 def read_matrix(fileName):
     global inputMatrix
     with open(fileName, "r") as input:
@@ -109,11 +115,13 @@ def read_matrix(fileName):
 
 
 if __name__ == "__main__":
-    global s1, s2, scoreMatrix, p, a, inputMatrix
+    global s1, s2, scoreTable, p, a, inputMatrix
     s1 = open(sys.argv[1], "r")
-    s1 = s1.read()
+    s1 = s1.readlines()[1:]
+    s1 = ''.join(s1).replace('\n', '')
     s2 = open(sys.argv[2], "r")
-    s2 = s2.read()
+    s2 = s2.readlines()[1:]
+    s2 = ''.join(s2).replace('\n', '')
     p = int(sys.argv[4])
     a = float(sys.argv[5])
     read_matrix(sys.argv[3])
