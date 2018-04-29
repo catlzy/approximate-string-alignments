@@ -1,4 +1,4 @@
-# approximate-string-alignments
+# Approximate String Alignments for CMPT353 Bioinformatics Assignment 2
 
 This repository contains code for local alignment, global alignment, and global alignment with affine gaps. Local and global alignments take approximately 75 seconds to run on any two of the three .fasta files in the repository, and affine takes approximately two minutes to run. 
 
@@ -9,8 +9,8 @@ To run the programs, use the .sh shell scripts with the desired arguments, inclu
 The program will print out the alignment score. The lines for printing out the aligned sequences are commented out since they can be really long. If want the aligned sequences to be printed out, the two lines are in the traceback() function for all programs. 
 
 The results are as follows:
-local alignment: yenterocolitica vs. medieval: 15809; ypestis vs. medieval: 20779
-global alignment: yenterocolitica vs. medieval: 15315; ypestis vs. medieval: 20778
+local alignment: yenterocolitica vs. medieval: 15809; ypestis vs. medieval: 20779  
+global alignment: yenterocolitica vs. medieval: 15315; ypestis vs. medieval: 20778  
 global with affine gaps: yenterocolitica vs. medieval: 16504.72; ypestis vs. medieval: 20777.98
 
 Based on the results, ypestis is more closely related to the medieval bacterium. 
