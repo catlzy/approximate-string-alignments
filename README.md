@@ -8,7 +8,7 @@ To run the programs, use the .sh shell scripts with the desired arguments, inclu
 
 The program will print out the alignment score. The lines for printing out the aligned sequences are commented out since they can be really long. If want the aligned sequences to be printed out, the two lines are in the traceback() function for all programs. 
 
-The results are as follows:
+The results are as follows:  
 local alignment: yenterocolitica vs. medieval: 15809; ypestis vs. medieval: 20779  
 global alignment: yenterocolitica vs. medieval: 15315; ypestis vs. medieval: 20778  
 global with affine gaps: yenterocolitica vs. medieval: 16504.72; ypestis vs. medieval: 20777.98
