@@ -1,4 +1,4 @@
-# Approximate String Alignments for CMPT353 Bioinformatics Assignment 2
+## Approximate String Alignments for CMPT353 Bioinformatics Assignment 2
 
 This repository contains code for local alignment, global alignment, and global alignment with affine gaps. Local and global alignments take approximately 75 seconds to run on any two of the three .fasta files in the repository, and affine takes approximately two minutes to run. 
 
