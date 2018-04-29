@@ -100,5 +100,5 @@ if __name__ == "__main__":
     p = int(sys.argv[4])
     read_matrix(sys.argv[3])
     traceback()
-    # ye with modern: 15809
-    # yp with modern: 20779
+    # ye with modern, p = -1: 15809
+    # yp with modern, p = -1: 20779
