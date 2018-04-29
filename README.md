@@ -1,7 +1,7 @@
 # Approximate String Alignments
 
 ## Overview
-This repository contains code for local alignment, global alignment, and global alignment with affine gaps. Local and global alignments take approximately 75 seconds to run on any two of the three .fasta files in the repository, and affine takes approximately two minutes to run. 
+This repository contains programs for local alignment, global alignment, and global alignment with affine gaps. Local and global alignments take approximately 75 seconds to run on any two of the three .fasta files in the repository, and affine takes approximately two minutes to run. 
 
 The .sh files are the shell scripts for the three alignments. The .py files are the python programs for the alignments. The scoringMatrix.txt is the current scoring matrix used to produce all results bellow. The .fasta files are three sequences being aligned. 
 
